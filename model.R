@@ -45,14 +45,14 @@ plot_grid(g3, g4, g1, g2)
 dev.off()
 
 types = factor(input$tree.type)
-tree = factor(input$med.plants)
+plants = factor(input$med.plants)
 
 pdf("outputs/boxplot_tree_types.pdf")
 boxplot(cbind(AE.25, AE.50, EE.25, EE.50)~types, input, ylab = "ZOI of extracts", xlab = "Tree types")
 dev.off()
 
 
-model = lm(AE.25~types+tree+types*tree, input)
+model = lm(AE.25~types+plants+types*plants, input)
 af <- anova(model)
 anova(model)
 afss <- af$"Sum Sq"
@@ -71,7 +71,7 @@ pie = ggplot(ve.ae.25.pie, aes(x="", y=PctExp, fill=variables)) + geom_bar(stat=
                                     plot.title = element_text(hjust = 0.5, color = "#666666"))
 
 
-model = lm(AE.50~types+tree+types*tree, input)
+model = lm(AE.50~types+plants+types*plants, input)
 af <- anova(model)
 anova(model)
 afss <- af$"Sum Sq"
@@ -89,7 +89,7 @@ pie1 = ggplot(ve.ae.50.pie, aes(x="", y=PctExp, fill=variables)) + geom_bar(stat
                           axis.ticks = element_blank(),
                           plot.title = element_text(hjust = 0.5, color = "#666666"))
 
-model = lm(EE.25~types+tree+types*tree, input)
+model = lm(EE.25~types+plants+types*plants, input)
 af <- anova(model)
 anova(model)
 afss <- af$"Sum Sq"
@@ -107,7 +107,7 @@ pie2 = ggplot(ve.ee.25.pie, aes(x="", y=PctExp, fill=variables)) + geom_bar(stat
                           axis.ticks = element_blank(),
                           plot.title = element_text(hjust = 0.5, color = "#666666"))
 
-model = lm(EE.50~types+tree+types*tree, input)
+model = lm(EE.50~types+plants+types*plants, input)
 af <- anova(model)
 anova(model)
 afss <- af$"Sum Sq"
@@ -124,6 +124,6 @@ pie3 = ggplot(ve.ee.50.pie, aes(x="", y=PctExp, fill=variables)) + geom_bar(stat
                           axis.ticks = element_blank(),
                           plot.title = element_text(hjust = 0.5, color = "#666666"))
 
-pedf("outputs/variance_explained.pdf")
+pdf("outputs/variance_explained.pdf")
 plot_grid(pie, pie1, pie2, pie3)
 dev.off()
