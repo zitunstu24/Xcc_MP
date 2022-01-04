@@ -36,8 +36,7 @@ g3 = ggscatter(input, x="AE.50", y="EE.25", add = "reg.line",
 
 g4 = ggscatter(input, x="AE.25", y="EE.25", add = "reg.line",
                xlab = " ",
-               ylab = " ")+
-  stat_cor(method = "pearson", label.x = 3, label.y = 30)
+               ylab = " ")
 
 pdf("outputs/correlation.pdf",
     width = 6.13,
@@ -49,7 +48,7 @@ types = factor(input$tree.type)
 tree = factor(input$med.plants)
 
 pdf("outputs/boxplot_tree_types.pdf")
-boxplot(cbind(AE.25, AE.50, EE.25, EE.50)~types, input, ylab = "Extracts", xlab = "Tree types")
+boxplot(cbind(AE.25, AE.50, EE.25, EE.50)~types, input, ylab = "ZOI of extracts", xlab = "Tree types")
 dev.off()
 
 
