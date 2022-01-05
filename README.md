@@ -2,7 +2,7 @@
 The effect of individual medicinal trees and tree types on the pathogen of black rot disease of Cabbage.
 
 1. Linear model was employed to see the effects and variance explained was calculated for variables
-2. correlations between different levels and types of extracts of medicinal plants were analysed
+2. Relations between different levels and types of extracts of medicinal plants were analysed
 
 # quick start
 inputs folder contains the data. model.R contains codes
